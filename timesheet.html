@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<!-- <link rel='stylesheet' type='text/css' href='example.css'> -->
+</head>
+<body>
+  <div id='itemsListArea'></div>
+  <div id='notificationArea'></div>
+  <input type='text' id='clientInput' placeholder='Client'>
+  <input type='text' id='taskNameInput' placeholder='Task'>
+  <input type='text' id='requestedByInput' placeholder='Requested by'>
+  <input type='text' id='taskTypeInput' placeholder='Task type'>
+  <input type='text' id='timeInput' placeholder='Time taken'>
+  <input type='text' id='costCentreInput' placeholder='Cost Centre'>
+  <input type='text' id='dateInput' placeholder='Date'>
+
+  <script>
+  var myDataRef = new Firebase('https://luminous-fire-793.firebaseio.com/timesheet');
+  $('#dateInput').keypress(function (e) {
+    if (e.keyCode == 13) {
+      $('#notificationArea').empty();
+      var client = $('#clientInput').val();
+      var taskName = $('#taskNameInput').val();
+      var requestedBy = $('#requestedByInput').val();
+      var taskType = $('#taskTypeInput').val();
+      var timeTaken = $('#timeInput').val();
+      var costCentre = $('#costCentreInput').val();
+      var date = $('#dateInput').val();
+
+      myDataRef.push({client: client, taskName: taskName, requestedBy:requestedBy,
+taskType:taskType, timeTaken:timeTaken, costCentre:costCentre, date:date});
+
+      $('#notificationArea').prepend('Item was successfully added');
+      $('#clientInput').val('');
+      $('#taskNameInput').val('');
+      $('#requestedByInput').val('');
+      $('#taskTypeInput').val('');
+      $('#timeInput').val('');
+      $('#costCentreInput').val('');
+      $('#dateInput').val('');
+    }
+  });
+/*  myDataRef.on('child_added', function(snapshot) {
+    var item = snapshot.val();
+    displayItemsList(item.client, item.taskName, item.requestedBy,
+item.taskType, item.timeTaken, item.costCentre, item.date);
+  });
+  function displayItemsList(client, taskName, requestedBy,
+taskType, timeTaken, costCentre, date) {
+        $('#itemsListArea').prepend(taskName + requestedBy + taskType + timeTaken + costCentre + date);
+        $('#itemsListArea')[0].scrollTop = $('#itemsListArea')[0].scrollHeight;
+      };*/
+    /*  myDataRef.child("users/-K50oNTHb1NzBLnSmEoz/name").on("value", function(snapshot) {
+      alert(snapshot.val());  // Alerts "Kris" 
+    });*/
+  </script>
+</body>
+</html>
