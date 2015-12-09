@@ -3,7 +3,7 @@
 <head>
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-<!-- <link rel='stylesheet' type='text/css' href='example.css'> -->
+<link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
   <div id='itemsListArea'></div>
@@ -42,16 +42,16 @@ taskType:taskType, timeTaken:timeTaken, costCentre:costCentre, date:date});
       $('#dateInput').val('');
     }
   });
-/*  myDataRef.on('child_added', function(snapshot) {
+  myDataRef.on('child_added', function(snapshot) {
     var item = snapshot.val();
     displayItemsList(item.client, item.taskName, item.requestedBy,
 item.taskType, item.timeTaken, item.costCentre, item.date);
   });
   function displayItemsList(client, taskName, requestedBy,
 taskType, timeTaken, costCentre, date) {
-        $('#itemsListArea').prepend(taskName + requestedBy + taskType + timeTaken + costCentre + date);
+        $('#itemsListArea').prepend(taskName + ' | ' + requestedBy + ' | ' + taskType + ' | ' + timeTaken + ' | ' + costCentre + ' | ' + date + '<br />');
         $('#itemsListArea')[0].scrollTop = $('#itemsListArea')[0].scrollHeight;
-      };*/
+      };
     /*  myDataRef.child("users/-K50oNTHb1NzBLnSmEoz/name").on("value", function(snapshot) {
       alert(snapshot.val());  // Alerts "Kris" 
     });*/

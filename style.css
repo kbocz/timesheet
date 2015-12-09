@@ -1,0 +1,18 @@
+body, input {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1em;
+
+
+}
+
+.green {
+	color:##3FBF7F;
+}
+
+.red {
+	color:##BF3F3F;
+}
+
+#notificationArea {
+	padding-top: 2em;
+}
