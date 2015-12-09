@@ -1,8 +1,6 @@
-body, input {
+body, input, table {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1em;
-
-
+	font-size: 1rem;
 }
 
 .green {
@@ -14,5 +12,16 @@ body, input {
 }
 
 #notificationArea {
-	padding-top: 2em;
+	padding-top: 2rem;
+}
+
+#itemsListTable {
+	width:100%;
+	border:1px solid #999;
+}
+
+#itemsListTable th {
+	background-color: #ddd;
+	font-weight: bold;
+	font-size: 1rem;
 }
